@@ -21,3 +21,11 @@ Icon
 
 # Vim
 *.swp
+
+#Intellij
+.settings/
+.idea/
+*.iml
+*.iws
+*.ipr
+

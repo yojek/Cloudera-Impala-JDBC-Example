@@ -178,33 +178,15 @@
 
 		<!-- YOUR LOCAL REPO -->
 		<repository>
-			<id>YOUR.LOCAL.REPO.ID</id>
-			<url><YOUR LOCAL REPO URL></url>
-			<name>YOUR.LOCAL.REPO.NAME</name>
+			<id>nexus.local</id>
+			<url>http://localhost:8081/nexus/content/repositories/thirdparty</url>
+			<name>Nexus Local</name>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 
-		<repository>
-			<id>cdh.repo</id>
-			<url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
-			<name>Cloudera Repositories</name>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		
-		<repository>
-			<id>central</id>
-			<url>http://repo1.maven.org/maven2/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
+
 		
 	</repositories>
 
