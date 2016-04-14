@@ -106,7 +106,7 @@ public class ClouderaImpalaJdbcExample {
 		public void run() {
 			try {
 				PreparedStatement stmt = conn.prepareStatement(sqlStatement);
-				System.out.println("Thread:" + Thread.currentThread().getName() + " Task:" + this.name + "Connection:" + conn.toString());
+				System.out.println(getLogPrintHeader() + "Connection:" + conn.toString());
 
 
 				while (true){
@@ -115,17 +115,23 @@ public class ClouderaImpalaJdbcExample {
 					try {
 						ResultSet rs = stmt.executeQuery();
 					} catch (SQLException e){
-						System.out.println("Thread:" + Thread.currentThread().getName() + " Task:" + this.name + " Failure " + e.getMessage() );
+						System.out.println(getLogPrintHeader() + " Failure " + e.getMessage() );
 						continue;
 					}
 					long finish = System.currentTimeMillis();
-					System.out.println("Thread:" + Thread.currentThread().getName() + " Task:" + this.name + " Success Duration=" + (finish-start));
+					System.out.println(getLogPrintHeader() + " Success Duration=" + (finish-start));
 
 				}
 
 			} catch (SQLException e){
-				System.out.println("Thread:" + Thread.currentThread().getName() + " Task:" + this.name+ " Failure to prepare statement");
+				System.out.println(getLogPrintHeader() + " Failure to prepare statement");
 			}
 		}
+
+		private String getLogPrintHeader() {
+			return "Thread:" + Thread.currentThread().getName() + " Task:" + this.name;
+		}
+
+
 	}
 }
